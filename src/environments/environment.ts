@@ -4,7 +4,17 @@
 
 export const environment = {
   production: false
+  ,
+  firebase: {
+    apiKey: "AIzaSyAMK7ha3LFctzUseHxsvNns5CZhRbfNFPs",
+    authDomain: "jta-cur-instag.firebaseapp.com",
+    projectId: "jta-cur-instag",
+    storageBucket: "jta-cur-instag.appspot.com",
+    messagingSenderId: "928197510576",
+    appId: "1:928197510576:web:0440ba6a43ef12ebefc275"
+  }
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file

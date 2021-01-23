@@ -5,14 +5,26 @@
 </head>
 
 <body>
-    <form method="post" action="">
+    <form method="post" [formGroup]="formul" (ngSubmit)="autenticar()">
         <h2>
             Autenticação
         </h2>
-        <p>Email: <input type="email" id="email" />
-        <p>Senha: <input type="password"></p>
+        <div class="form-group">
+            <p>Email: <input type="email" id="email" 
+                            class="form-control" 
+                            placeholder="E-mail"
+                            formControlName="email"
+                    />
+        </div>
+        <div class="form-group">
+            <p>Senha: <input type="password"
+                        class="form-control" 
+                        placeholder="Senha"
+                        formControlName="senha"
+                    ></p>
+        </div>
         <p>
-            <input type="submit">
+            <input type="submit" value="Enviar">
     </form>
 </body>
 
