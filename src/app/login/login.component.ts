@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AutenticacaoService } from '../services/autenticacao.service'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-login',
@@ -9,8 +10,12 @@ import { AutenticacaoService } from '../services/autenticacao.service'
 })
 export class LoginComponent implements OnInit {
 
+  public isErroLogin: boolean = false
+  public mensagemErroLogin: string = ''
+
   constructor(
-    private autenticacao: AutenticacaoService
+    private autenticacao: AutenticacaoService,
+    private router: Router
   ) { }
 
   public formul: FormGroup = new FormGroup({
@@ -39,16 +44,23 @@ export class LoginComponent implements OnInit {
     this.autenticacao.autenticarUsuario(email, senha)
     .then(result => {
 
-      if (this.autenticacao.autenticado()) {
-        console.log('Autenticou !!')
+      this.isErroLogin = this.autenticacao.isErro()
+      this.mensagemErroLogin = this.autenticacao.getMensagemErro()
+
+      if (!this.isErroLogin) {
+
+        this.router.navigate (['/professor'])
       }
-  
-  
-    }
-    ).catch (err => {
-      console.log('Erro de autenticação: ', err)
+
     })
 
+  }
+
+
+  public formValido (): string {
+
+    return  (this.formul.valid ? '' : 'disabled')
+    
   }
 
 }

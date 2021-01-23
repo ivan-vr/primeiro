@@ -84,6 +84,15 @@ export class AutenticacaoService {
 
   }
 
+
+  public getMensagemErro (): string {
+    return this.mensagemErro
+}
+
+public isErro (): boolean {
+    return this.erro
+}
+
   
 
 }

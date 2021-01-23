@@ -24,8 +24,15 @@
                     ></p>
         </div>
         <p>
-            <input type="submit" value="Enviar">
+            <input type="submit" value="Enviar" [disabled]="formValido()">
     </form>
+    <hr>
+    <div *ngIf="isErroLogin"> 
+        <p class="small text-danger text-center">
+          Erro: {{ mensagemErroLogin }}
+        </p>
+    </div> 
+
 </body>
 
 </html>

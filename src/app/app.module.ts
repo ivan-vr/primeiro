@@ -13,7 +13,9 @@ import { LoginComponent } from './login/login.component';
 import { AutenticacaoService } from './services/autenticacao.service';
 import { InclusaoComponent } from './professor/inclusao/inclusao.component';
 import { AlteracaoComponent } from './professor/alteracao/alteracao.component';
-import { ConsultaComponent } from './professor/consulta/consulta.component'
+import { ConsultaComponent } from './professor/consulta/consulta.component';
+import { ProfessorComponent } from './professor/professor.component';
+import { AcessoComponent } from './acesso/acesso.component'
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { ConsultaComponent } from './professor/consulta/consulta.component'
     LoginComponent,
     InclusaoComponent,
     AlteracaoComponent,
-    ConsultaComponent
+    ConsultaComponent,
+    ProfessorComponent,
+    AcessoComponent
   ],
   imports: [
     BrowserModule,
