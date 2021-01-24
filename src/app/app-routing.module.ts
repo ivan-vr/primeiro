@@ -2,14 +2,15 @@ import { NgModule } from '@angular/core'
 import { Routes, RouterModule } from '@angular/router'
 import { LoginComponent } from './login/login.component'
 import { ProfessorComponent } from './professor/professor.component'
+import { InclusaoComponent } from './professor/inclusao/inclusao.component'
+import { AlteracaoComponent } from './professor/alteracao/alteracao.component'
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
-  {path: 'professor', component: ProfessorComponent},
-  {path: '', redirectTo: '/login', pathMatch: 'full'}
-
-//  this.router.navigate (['/home'])
-
+  {path: 'professor', component: ProfessorComponent },
+  {path: 'cadastro-professor', component: InclusaoComponent },
+  {path: 'alteracao-professor', component: AlteracaoComponent },
+  {path: '', redirectTo: '/professor', pathMatch: 'full'}
 ];
 
 @NgModule({

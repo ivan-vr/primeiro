@@ -1,1 +1,36 @@
-<p>professor works!</p>
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Professores</title>
+  </head>
+  <body>
+    <form [formGroup]="formul">
+      <div class="form-group">
+        <h1> Professores </h1>
+        <div>
+          <table>
+            <tbody>
+              <tr *ngFor="let prof of professores">
+                <td><input type="checkbox" value="{{prof.matricula}}" name="profe"
+                  class="form-control" 
+                  formControlName="escolha"
+                  >
+                </td>
+                <td>{{ prof.matricula }}</td>
+                <td>{{ prof.nome }} </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <br>
+      <div> 
+          <input value="Excluir" type="button"> 
+          <input value="Alterar" type="button"  (click)="alterarProfessor()">
+          <input value="Novo" type="button" (click)="cadastrarProfessor()"> 
+      </div>
+    </form>
+    
+  </body>
+</html>

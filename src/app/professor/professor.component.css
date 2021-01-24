@@ -1,0 +1,12 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #dafbe2;
+    color: rgba(0,0,0,1);
+}
+
+table {
+    border: 1px solid #707070;
+    border-spacing: 3px;
+    padding: 10px;
+    width: 900px;
+}
