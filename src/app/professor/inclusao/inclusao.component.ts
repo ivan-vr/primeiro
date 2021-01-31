@@ -55,6 +55,8 @@ export class InclusaoComponent implements OnInit {
 
     console.log('InclusaoComponent - cadastrar - Chave : ', chave)
 
+    this.router.navigate (['/professor'])
+
   }
 
   public voltar() : void {

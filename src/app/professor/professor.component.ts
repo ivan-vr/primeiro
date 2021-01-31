@@ -4,7 +4,7 @@ import { Router } from '@angular/router'
 import { Professor } from '../shared/professor.model'
 import { ProfessorService } from './professor.service'
 
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-professor',
@@ -36,22 +36,57 @@ export class ProfessorComponent implements OnInit {
   }
 
   public listaProfessores(): void {
-    this.professores = this.profService.listaProfessores()
 
-    console.log('Professores: ', this.professores)
+    this.professores = this.profService.listaProfessores()
   }
+
 
   public cadastrarProfessor(): void {
 
       this.router.navigate (['/cadastro-professor'])
   }
 
+
   public alterarProfessor() : void {
 
-    console.log('Escolha: ', this.formul.controls['escolha'].value)
+    let id: string = this.formul.controls['escolha'].value
 
-    
-    this.router.navigate (['/alteracao-professor'])
+    this.professores.forEach((profe: Professor)  => {
+
+      if (profe.id == id) {
+
+        sessionStorage.setItem(id, profe.matricula)
+
+      } 
+
+    })
+
+    let queryStr = { 
+      queryParams: { 
+        id: id 
+      } 
+    }
+    this.router.navigate (['/alteracao-professor'], queryStr)
+  }
+
+  public excluirProfessor() : void {
+
+    let id: string = this.formul.controls['escolha'].value
+
+    this.professores.forEach((profe: Professor)  => {
+
+      if (profe.id == id) {
+        sessionStorage.setItem(id, profe.matricula)
+      } 
+
+    })
+
+    let queryStr = { 
+      queryParams: { 
+        id: id 
+      } 
+    }
+    this.router.navigate (['/exclusao-professor'], queryStr)
   }
 
 }

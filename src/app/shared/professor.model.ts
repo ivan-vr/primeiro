@@ -1,6 +1,6 @@
 export class Professor {
 
-    public id: number = 0
+    public id: string = ''
     public matricula: string = ''
     public nome: string = ''
     public userId: string = ''

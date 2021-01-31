@@ -12,8 +12,6 @@ export class ProfessorService {
 
     public cadastrar(professor: Professor): number {
 
-        console.log('ProfessorService - cadastrar - Entrou')
-
         let id: number = 0
         let matr: string = professor.matricula
 
@@ -21,14 +19,14 @@ export class ProfessorService {
             .set( professor )
             .then( (resp: any) => {
 
-                console.log('ProfessorService - cadastrar - Entrou then: ', resp)
+                console.log(resp)
   
                 id = 0
       
             })
-            .catch (err => {
+            .catch ((err:any) => {
 
-                console.log('ProfessorService - cadastrar - Erro cadastro professor: ' + err)
+                console.log(err)
                 id =  0
             })
             return id
@@ -36,8 +34,6 @@ export class ProfessorService {
   
 
     public listaProfessores(): Professor[] {
-
-        let matr = "12345"
 
         let profs: Professor[] = []
 
@@ -66,24 +62,63 @@ export class ProfessorService {
 
         })
         .catch((err: any) => {
-            console.log('ProfessorService - listaProfessores - Erro na busca: ' + err)
-            
+            console.log(err)
         })
 
         return profs
 
     }
 
-    // public getALl(): Promise<Professor[]> {
-    //     //efetuar uma requisição http
-    //     return [];
+    public buscaProfessor(id: string): Promise<Professor> {
 
-    //     return this.http.get(`${URL_API}/ofertas?destaque=true`)
-    //     .toPromise()
-    //     .then((resposta: any) => resposta)
+        return new Promise((resolve, reject) => {
 
-    //     //retornar uma promise Oferta
-    // }
+            let prof: Professor = new Professor()
+    
+            this.afDatabase.database.ref(`professores/${id}`)
+            .once('value')
+            .then((snapshot) => {
+    
+                let elem = snapshot.val()
+    
+                prof.id = id
+                prof.matricula = elem.matricula
+                prof.nome = elem.nome
+                prof.userId = elem.userId
+                prof.dataMatricula = elem.dataMatricula
+                prof.formacao = elem.formacao
+                prof.maiorTitulo = elem.maiorTitulo
+
+                resolve(prof)
+    
+            })
+            .catch((err: any) => {
+                reject(err)
+            })
+    
+        })    
+
+    }
 
 
+    public excluiProfessor(id: string): Promise<string> {
+
+        return new Promise((resolve, reject) => {
+
+            let prof: Professor = new Professor()
+    
+            this.afDatabase.database.ref(`professores/${id}`)
+            .remove()
+            .then((snapshot) => {
+
+                resolve(id)
+    
+            })
+            .catch((err: any) => {
+                reject(err)
+            })
+    
+        })    
+
+    }
 }

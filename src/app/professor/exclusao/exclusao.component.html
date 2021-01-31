@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Professores</title>
+  </head>
+  <body>
+    <form method="post" [formGroup]="formul" (ngSubmit)="excluir()">
+      <div>
+        <h1> Alteração de Professor </h1>
+        <div class="form-group">
+          <table>
+            <tbody>
+              <tr>
+                <td>Matrícula:</td>
+                <td>
+                  <input type="text" 
+                  class="form-control" 
+                  placeholder="Matrícula"
+                  formControlName="matricula"
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>Nome:</td>
+                <td>
+                  <input type="text" 
+                  class="form-control" 
+                  placeholder="Nome"
+                  formControlName="nome"
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>User ID:</td>
+                <td>
+                  <input type="text"
+                  class="form-control" 
+                  placeholder="User ID"
+                  formControlName="userid"
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>Data de Contratação:</td>
+                <td>
+                  <input type="date"
+                  class="form-control" 
+                  placeholder="Data de Contratação"
+                  formControlName="data-contratacao"
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>Formação:</td>
+                <td>
+                  <input type="text"
+                  class="form-control" 
+                  placeholder="Formação"
+                  formControlName="formacao"
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>Maior Título:</td>
+                <td>
+                  <input type="text"
+                  class="form-control" 
+                  placeholder="Maior título"
+                  formControlName="maior-titulo"
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <br>
+      <div> 
+        <input value="Cancelar" type="button" (click)="voltar()"> 
+        <input value="Enviar" type="submit">
+      </div>
+    </form>
+    
+  </body>
+</html>

@@ -12,13 +12,19 @@
           <table>
             <tbody>
               <tr *ngFor="let prof of professores">
-                <td><input type="checkbox" value="{{prof.matricula}}" name="profe"
-                  class="form-control" 
-                  formControlName="escolha"
+                <td>
+                  <input type="radio" 
+                        value="{{prof.id}}" 
+                        class="form-control" 
+                        formControlName="escolha"
                   >
                 </td>
-                <td>{{ prof.matricula }}</td>
+                <td >{{ prof.matricula }}</td>
                 <td>{{ prof.nome }} </td>
+                <td>{{ prof.userId }} </td>
+                <td>{{ prof.dataContratacao }} </td>
+                <td>{{ prof.formacao }} </td>
+                <td>{{ prof.maiorTitulo }} </td>
               </tr>
             </tbody>
           </table>
@@ -26,7 +32,7 @@
       </div>
       <br>
       <div> 
-          <input value="Excluir" type="button"> 
+          <input value="Excluir" type="button"  (click)="excluirProfessor()"> 
           <input value="Alterar" type="button"  (click)="alterarProfessor()">
           <input value="Novo" type="button" (click)="cadastrarProfessor()"> 
       </div>

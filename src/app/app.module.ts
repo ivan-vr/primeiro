@@ -16,6 +16,7 @@ import { ProfessorService } from './professor/professor.service'
 
 import { InclusaoComponent } from './professor/inclusao/inclusao.component';
 import { AlteracaoComponent } from './professor/alteracao/alteracao.component';
+import { ExclusaoComponent } from './professor/exclusao/exclusao.component';
 import { ConsultaComponent } from './professor/consulta/consulta.component';
 import { ProfessorComponent } from './professor/professor.component';
 import { AcessoComponent } from './acesso/acesso.component'
@@ -26,6 +27,7 @@ import { AcessoComponent } from './acesso/acesso.component'
     LoginComponent,
     InclusaoComponent,
     AlteracaoComponent,
+    ExclusaoComponent,
     ConsultaComponent,
     ProfessorComponent,
     AcessoComponent

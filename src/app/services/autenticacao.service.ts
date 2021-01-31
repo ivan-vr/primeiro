@@ -26,8 +26,6 @@ export class AutenticacaoService {
 
     public autenticarUsuario(email: string, senha: string): Promise<any> {
 
-        console.log('>> autenticacao')
-
         return this.afAuth.signInWithEmailAndPassword(email, senha)
             .then((resposta: any) => {
 
